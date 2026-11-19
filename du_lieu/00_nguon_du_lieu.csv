@@ -1,0 +1,6 @@
+Nguồn,Nội dung lấy,Cách lấy,Độ phân giải,Ghi chú
+Báo chí (VietNamNet/ICTnews; VnExpress; Tuổi Trẻ; Thanh Niên; VTV; VOV; VietnamPlus...),Ngày sự cố; ngày khôi phục; nhánh lỗi; mức ảnh hưởng,Tra cứu thủ công; mỗi sự cố 1–2 nguồn,Theo sự kiện,File 01
+RIPE Atlas (RIPE NCC),Ping từ probe tại VN (VNPT; Viettel; FPT) tới anchor Singapore/HK/Đài Bắc/Seoul/Los Angeles và root DNS,REST API atlas.ripe.net/api/v2/measurements/{id}/results (script lay_du_lieu_ripe_atlas.py),Theo ngày (1 giờ cao điểm 20–21h),File 02; 03; 04; 06
+M-Lab NDT – Monthly Stats (IQB),Tốc độ tải xuống; độ trễ; mất gói theo ISP,File Parquet công khai (script lay_du_lieu_mlab.py),Theo tháng,File 07 – cần chạy script trên máy cá nhân
+Ookla Open Data (tham khảo),Tốc độ tải và độ trễ theo ô địa lý,AWS S3 ookla-open-data,Theo quý; không tách ISP,Không dùng cho phân tích sự kiện vì quá thô; chỉ nêu ở phần bối cảnh
+Cloudflare Radar / IODA (tham khảo),Lưu lượng; mất kết nối theo quốc gia/ISP,Dashboard web,Theo giờ,Dùng để chụp hình minh họa nếu cần

@@ -1,0 +1,17 @@
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+
+# Bản lưu trữ cũ, không đưa lên GitHub
+_luu_tru/
+
+# File tạm của Excel / hệ điều hành
+~$*
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# File thử khi chạy riêng script
+thu.csv

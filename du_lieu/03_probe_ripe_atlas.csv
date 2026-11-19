@@ -1,0 +1,19 @@
+probe_id,isp,asn,quoc_gia,kinh_do,vi_do,khu_vuc_uoc_tinh,la_anchor,trang_thai_11_2026,ket_noi_dau,ket_noi_cuoi,the_mo_ta
+411,FPT,18403,VN,105.85,21.03,Hà Nội,False,Written Off,2011-02-28,2024-06-28,office
+7400,Viettel,7552,VN,106.68,10.75,TP.HCM,True,Connected,2024-10-14,2026-11-18,system-virtual (anchor)
+21640,VNPT,45899,VN,105.80,21.01,Hà Nội,False,Abandoned,2015-06-26,2026-06-11,fibre|office
+28050,VNPT,45899,VN,106.72,10.79,TP.HCM,False,Written Off,2018-07-25,2024-06-28,
+54440,FPT,18403,VN,107.46,11.28,Đồng Nai/Bình Phước,False,Disconnected,2019-12-08,2026-11-17,office|ftth
+55753,Viettel,7552,VN,108.21,16.06,Đà Nẵng,False,Connected,2024-06-18,2026-11-18,
+64251,FPT,18403,VN,106.68,10.77,TP.HCM,False,Connected,2024-07-22,2026-11-18,office|ftth
+1000379,VNPT,45899,VN,106.71,10.80,TP.HCM,False,Connected,2020-04-09,2026-11-18,
+1000382,VNPT,45899,VN,109.32,13.09,Phú Yên,False,Abandoned,2020-04-09,2023-09-20,home
+1000388,FPT,18403,VN,109.19,12.25,Khánh Hòa,False,Abandoned,2020-04-09,2025-02-26,fibre|home|ftth
+1003518,FPT,18403,VN,106.75,10.77,TP.HCM,False,Abandoned,2022-01-10,2023-10-26,datacentre
+1005516,VNPT,45899,VN,105.85,21.03,Hà Nội,False,Written Off,2023-03-29,2024-12-27,
+1006856,VNPT,45899,VN,106.63,10.82,TP.HCM,False,Connected,2023-11-27,2026-11-18,home
+1008882,Viettel,7552,VN,106.48,11.33,Bình Dương/Tây Ninh,False,Connected,2024-09-09,2026-11-18,
+1009020,VNPT,45899,VN,106.68,10.75,TP.HCM,False,Connected,2024-09-30,2026-11-18,
+1009312,FPT,18403,VN,105.83,21.03,Hà Nội,False,Connected,2024-10-31,2026-11-18,
+1011222,VNPT,45899,VN,105.85,21.03,Hà Nội,False,Connected,2025-05-12,2026-11-18,
+1013301,VNPT,45899,VN,105.85,21.02,Hà Nội,False,Connected,2025-11-08,2026-11-18,
