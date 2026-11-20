@@ -1,14 +1,20 @@
-# Sự cố cáp quang biển và chất lượng truy cập Internet tại Việt Nam (2022–2025)
+# Minh chứng thu thập dữ liệu: Sự cố cáp quang biển và chất lượng truy cập Internet tại Việt Nam (2022–2025)
 
-Bộ dữ liệu và mã nguồn cho đồ án nhóm môn **Mạng máy tính**: *Phân tích mối liên hệ giữa sự cố cáp quang biển và chất lượng truy cập Internet tại Việt Nam giai đoạn 2022–2025*.
+Thư mục này là minh chứng phần **thu thập và tiền xử lý dữ liệu** cho đồ án nhóm môn **Mạng máy tính**: *Phân tích mối liên hệ giữa sự cố cáp quang biển và chất lượng truy cập Internet tại Việt Nam giai đoạn 2022–2025*.
 
-Toàn bộ dữ liệu được lấy qua **REST API công khai của RIPE Atlas** và **bộ dữ liệu mở M-Lab NDT**, kết hợp bảng mốc sự cố tổng hợp thủ công từ báo chí. Chạy lại một lệnh là tái tạo được mọi con số trong báo cáo.
+Người thực hiện: Nguyễn Duy Bảo, phụ trách Dữ liệu và Thu thập số liệu.
 
-## Kết quả chính
+Toàn bộ dữ liệu đo được lấy bằng mã nguồn trong thư mục `scripts/`, qua **REST API công khai của RIPE Atlas** và **bộ dữ liệu mở M-Lab NDT**; bảng mốc sự cố được tổng hợp thủ công từ báo chí, mỗi sự cố ghi rõ nguồn. Chạy lại một lệnh là tái tạo được toàn bộ dữ liệu trong `du_lieu/`.
 
-- **Tháng 2/2023, khi cả 5 tuyến cáp cùng lỗi:** Theo M-Lab, tốc độ tải trung vị cả nước giảm từ 12,5 xuống 6,7 Mbit/s, độ trễ trung vị tăng từ 66 lên 133 ms so với tháng 1/2023.
-- **Sự cố một tuyến đơn lẻ:** Độ trễ ping (RTT) trung vị của phần lớn sự cố chỉ thay đổi trong khoảng ±5%, do nhà mạng chuyển lưu lượng sang tuyến khác. Ảnh hưởng thể hiện ở dung lượng (tốc độ tải) nhiều hơn ở độ trễ.
-- **Trường hợp tiêu biểu SC22 (APG, 29/11/2024):** Đường FPT → Hong Kong tăng từ 56,7 lên 89,6 ms (+58%), trong khi FPT → Singapore gần như không đổi.
+## Dữ liệu đã thu thập
+
+| Nguồn | Cách lấy | Phạm vi | Kết quả |
+|---|---|---|---|
+| RIPE Atlas | REST API `atlas.ripe.net/api/v2/measurements/{id}/results/`, script `lay_du_lieu_ripe_atlas.py` | 1/1/2022–31/12/2025, mỗi ngày khung 20:00–21:00 giờ Việt Nam; 18 thiết bị đo của VNPT, FPT, Viettel; 11 phép đo ping (3 máy chủ DNS gốc k/f/c-root và 8 phép đo tới máy chủ neo ở Singapore, Hong Kong, Đài Bắc, Seoul, Los Angeles) | 36.163 bản ghi thô (`ripe_raw.csv`), sau làm sạch còn 35.591 bản ghi theo ngày |
+| M-Lab NDT | Tệp thống kê theo tháng (IQB) công khai, script `lay_du_lieu_mlab.py` | 1/2022–12/2025; cả nước và 3 mạng VNPT (AS45899), Viettel (AS7552), FPT (AS18403) | 192 dòng (48 tháng × 4 đối tượng) |
+| Báo chí | Tổng hợp thủ công, lưu trong `scripts/incidents.py` | 2022–2025 | 26 sự cố, 3 sự kiện hạ tầng mới, 2 sự cố sau giai đoạn nghiên cứu (31 dòng), mỗi dòng có link nguồn |
+
+Danh sách thiết bị đo: `du_lieu/03_probe_ripe_atlas.csv`. Mã các phép đo (measurement ID): biến `MSMS` trong `scripts/lay_du_lieu_ripe_atlas.py`. Mô tả các nguồn: `du_lieu/00_nguon_du_lieu.csv`.
 
 ## Cấu trúc thư mục
 
@@ -20,14 +26,14 @@ Toàn bộ dữ liệu được lấy qua **REST API công khai của RIPE Atlas
 ├── docs/
 │   └── MO_TA_DU_LIEU.md      ← mô tả chi tiết từng file và từng cột dữ liệu
 ├── scripts/
-│   ├── incidents.py              ← bảng mốc thời gian sự cố (sửa/thêm sự cố tại đây)
+│   ├── incidents.py              ← bảng mốc thời gian sự cố, kèm nguồn báo chí
 │   ├── build_timeline.py         ← xuất bảng sự cố ra CSV
 │   ├── lay_du_lieu_ripe_atlas.py ← gọi API RIPE Atlas, tổng hợp ping theo ngày
 │   ├── lay_du_lieu_mlab.py       ← tải thống kê M-Lab theo tháng
 │   ├── xu_ly_du_lieu.py          ← làm sạch, so sánh trước/trong/sau sự cố
 │   └── build_excel.py            ← gom kết quả vào 1 file Excel
 └── du_lieu/                  ← dữ liệu đã thu thập và kết quả xử lý
-    ├── ripe_raw.csv
+    ├── ripe_raw.csv          ← dữ liệu thô tải từ RIPE Atlas
     ├── 00_nguon_du_lieu.csv … 07_mlab_vn_theo_thang.csv
     └── DuLieu_CapQuangBien_2022_2025.xlsx
 ```
@@ -97,11 +103,3 @@ Giải thích từng cột: xem [`docs/MO_TA_DU_LIEU.md`](docs/MO_TA_DU_LIEU.md)
 - Nguồn báo chí cho từng sự cố: cột `Nguồn 1`, `Nguồn 2` trong `du_lieu/01_moc_thoi_gian_su_co.csv`.
 
 Dữ liệu đo thuộc về RIPE NCC và M-Lab, được dùng theo điều khoản của từng nguồn; khi dùng lại, vui lòng trích dẫn như trên.
-
-## Lịch sử phiên bản
-
-| Phiên bản | Thay đổi |
-|---|---|
-| v1 | Thu thập dữ liệu RIPE Atlas, M-Lab; bảng mốc sự cố |
-| v2 | So sánh theo cặp đo cố định thay cho gộp theo nhà mạng; thêm bảng 06b |
-| v3 | Bỏ RTT của ngày mất từ 50% gói; thêm cột mức thay đổi chỉ tính máy chủ neo trong bảng 06b |
